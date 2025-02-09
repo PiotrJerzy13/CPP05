@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:46:35 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 13:21:58 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 18:45:58 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		std::string _target;
+		std::string target;
 
 	public:
 		ShrubberyCreationForm();

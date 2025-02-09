@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:41:47 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 15:06:55 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:42:23 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 
 class PresidentialPardonForm : public AForm
 {
-	private:
-		std::string target;
+private:
+	std::string target;
 
-	public:
-		PresidentialPardonForm();
-		explicit PresidentialPardonForm(std::string_view target);
-		~PresidentialPardonForm() override = default;
+public:
+	PresidentialPardonForm();
+	explicit PresidentialPardonForm(std::string_view target);
+	~PresidentialPardonForm() override = default;
 
-		[[nodiscard]] std::string getTarget() const;
-		[[nodiscard]] bool execute(const Bureaucrat& executor) const override;
+	[[nodiscard]] std::string getTarget() const;
+	[[nodiscard]] bool execute(const Bureaucrat& executor) const override;
 };
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& form);

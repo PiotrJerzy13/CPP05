@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:45:51 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 14:32:22 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:31:47 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("RobotomyRequestForm", 72, 45), target("Default Target") {}
+    : AForm("RobotomyRequestForm", 72, 45), target("Default Target") {}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string_view target)
-	: AForm("RobotomyRequestForm", 72, 45), target(target) {}
+    : AForm("RobotomyRequestForm", 72, 45), target(target) {}
 
 std::string RobotomyRequestForm::getTarget() const { return target; }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:46:30 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 14:33:02 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:32:18 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: AForm("ShrubberyCreationForm", 145, 137), _target("Default Target") {}
+	: AForm("ShrubberyCreationForm", 145, 137), target("Default Target") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string_view target)
-	: AForm("ShrubberyCreationForm", 145, 137), _target(target) {}
+	: AForm("ShrubberyCreationForm", 145, 137), target(target) {}
 
-std::string ShrubberyCreationForm::getTarget() const { return _target; }
+std::string ShrubberyCreationForm::getTarget() const { return target; }
 
 bool ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 {
@@ -34,7 +34,7 @@ bool ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 		throw GradeTooLowException();
 	}
 
-	std::string filename = _target + "_shrubbery";
+	std::string filename = target + "_shrubbery";
 	std::ofstream outFile(filename);
 
 	if (!outFile)
@@ -44,25 +44,25 @@ bool ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	}
 
 	const std::string tree = R"(
-       *      
-      ***     
-     *****    
-    *******   
+	   *      
+	  ***     
+	 *****    
+	*******   
    *********  
   *********** 
  ************* 
-       |||    
-       |||    
+	   |||    
+	   |||    
 
-       *      
-      ***     
-     *****    
-    *******   
+	   *      
+	  ***     
+	 *****    
+	*******   
    *********  
   *********** 
  ************* 
-       |||    
-       |||    
+	   |||    
+	   |||    
 )";
 
 	outFile << tree;

@@ -3,23 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:06:38 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 14:29:35 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:26:41 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("Default"), isSigned(false), toSign(50), toExec(20) {}
+AForm::AForm() 
+	: details("Default", 50, 20), isSigned(false) {}
 
 AForm::AForm(std::string_view name, int toSign, int toExec)
-	: name(name), isSigned(false), toSign(toSign), toExec(toExec) {}
+	: details(std::string(name), toSign, toExec), isSigned(false) {}
 
 AForm::AForm(const AForm& other)
-	: name(other.name), isSigned(other.isSigned), toSign(other.toSign), toExec(other.toExec) {}
+	: details(other.details), isSigned(other.isSigned) {}
 
 AForm::~AForm() = default;
 
@@ -32,10 +33,10 @@ AForm& AForm::operator=(const AForm& other)
 	return *this;
 }
 
-std::string AForm::getName() const { return name; }
+std::string AForm::getName() const { return details.getName(); }
 bool AForm::getIsSigned() const { return isSigned; }
-int AForm::getToSign() const { return toSign; }
-int AForm::getToExec() const { return toExec; }
+int AForm::getToSign() const { return details.getSignGrade(); }
+int AForm::getToExec() const { return details.getExecGrade(); }
 
 const char* AForm::GradeTooHighException::what() const noexcept
 {
@@ -49,7 +50,7 @@ const char* AForm::GradeTooLowException::what() const noexcept
 
 void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() > toSign)
+	if (bureaucrat.getGrade() > details.getSignGrade())
 		throw GradeTooLowException();
 	isSigned = true;
 }

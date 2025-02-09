@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:38:42 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 15:05:50 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:41:35 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
@@ -16,16 +17,15 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include "FormDetails.hpp"
 
 class Bureaucrat;
 
 class AForm
 {
 	private:
-		const std::string name;
+		FormDetails details;
 		bool isSigned;
-		const int toSign;
-		const int toExec;
 
 	public:
 		AForm();

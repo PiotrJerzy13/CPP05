@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 09:42:08 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 10:35:59 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:34:14 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
+#include "FormDetails.hpp"
 #include <exception>
 #include <iostream>
 #include <string>
@@ -23,10 +24,8 @@ class Bureaucrat;
 class Form
 {
 private:
-	const std::string name;
+	FormDetails details;
 	bool isSigned;
-	const int toSign;
-	const int toExec;
 
 public:
 	Form() noexcept;

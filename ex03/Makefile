@@ -2,7 +2,8 @@ CC = c++
 CFLAGS = -Wall -Werror -Wextra -std=c++17
 
 NAME = Bureaucrat
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
+RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp FormDetails.cpp 
 OBJ_DIR = bin
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 10:45:39 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 11:20:44 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 19:37:47 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "FormDetails.hpp"
 
 void testValidForms()
 {
