@@ -6,11 +6,13 @@
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 17:28:50 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 10:11:04 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 11:02:45 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat() : name("Default"), grade(1) {}
 
 Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name)
 {
