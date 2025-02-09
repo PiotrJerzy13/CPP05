@@ -6,13 +6,12 @@
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:03:14 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 12:36:50 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 14:31:06 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
-#include <iostream>
 
 PresidentialPardonForm::PresidentialPardonForm() 
 	: AForm("PresidentialPardonForm", 25, 5), target("Default Target") {}

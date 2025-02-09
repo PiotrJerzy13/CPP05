@@ -6,18 +6,18 @@
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:01:06 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 12:36:45 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 13:00:38 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
+#include <iostream>
 #include <string>
 #include <string_view>
 #include <exception>
-#include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat
 {
@@ -27,7 +27,7 @@ private:
 
 public:
 	Bureaucrat();
-	Bureaucrat(std::string_view name, int grade);
+	explicit Bureaucrat(std::string_view name, int grade);
 	Bureaucrat(const Bureaucrat& other);
 	~Bureaucrat();
 	Bureaucrat& operator=(const Bureaucrat& other);
@@ -35,9 +35,9 @@ public:
 	[[nodiscard]] std::string_view getName() const noexcept;
 	[[nodiscard]] int getGrade() const noexcept;
 
-	void incrementGrade(int decrement);
-	void decrementGrade(int increment);
-	void signForm(Form &form);
+	void incrementGrade();
+	void decrementGrade();
+	void signForm(AForm &form);
 
 	class GradeTooHighException : public std::exception
 	{

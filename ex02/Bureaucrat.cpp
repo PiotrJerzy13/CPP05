@@ -6,13 +6,13 @@
 /*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:01:38 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 12:36:41 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/09 13:23:40 by pwojnaro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() = default;
+Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name)
 {
@@ -39,21 +39,21 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 std::string_view Bureaucrat::getName() const noexcept { return name; }
 int Bureaucrat::getGrade() const noexcept { return grade; }
 
-void Bureaucrat::incrementGrade(int decrement)
+void Bureaucrat::incrementGrade()
 {
-	if (grade - decrement < 1)
+	if (grade <= 1)
 		throw GradeTooHighException();
-	grade -= decrement;
+	grade--;
 }
 
-void Bureaucrat::decrementGrade(int increment)
+void Bureaucrat::decrementGrade()
 {
-	if (grade + increment > 150)
+	if (grade >= 150)
 		throw GradeTooLowException();
-	grade += increment;
+	grade++;
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -62,7 +62,7 @@ void Bureaucrat::signForm(Form &form)
 	}
 	catch (const std::exception &e)
 	{
-		std::cout << name << " couldn't sign " << form.getName()
+		std::cerr << name << " couldn't sign " << form.getName()
 				  << " because " << e.what() << std::endl;
 	}
 }
