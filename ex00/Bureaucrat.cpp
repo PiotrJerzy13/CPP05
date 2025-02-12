@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 17:28:50 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 15:16:39 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:13:14 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 Bureaucrat::Bureaucrat() noexcept : name("Default"), grade(1) {}
 
-Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name), grade(grade)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
-		// throw std::runtime_error("Artificial exception to test try-catch");
-	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat() noexcept {}
@@ -45,20 +43,18 @@ int Bureaucrat::getGrade() const noexcept
 	return grade;
 }
 
-void Bureaucrat::incrementGrade(int decrement)
+void Bureaucrat::incrementGrade(int amount)
 {
-	int newGrade = grade - decrement;
-	if (newGrade < 1)
+	if (grade - amount < 1)
 		throw GradeTooHighException();
-	grade = newGrade;
+	grade -= amount;
 }
 
-void Bureaucrat::decrementGrade(int increment)
+void Bureaucrat::decrementGrade(int amount)
 {
-	int newGrade = grade + increment;
-	if (newGrade > 150)
+	if (grade + amount > 150)
 		throw GradeTooLowException();
-	grade = newGrade;
+	grade += amount;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const noexcept

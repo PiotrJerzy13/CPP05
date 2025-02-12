@@ -6,7 +6,7 @@
 /*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 09:42:08 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 19:34:14 by piotr            ###   ########.fr       */
+/*   Updated: 2025/02/12 10:44:57 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <exception>
 #include <iostream>
 #include <string>
-#include <string_view>
 
 class Bureaucrat;
 
@@ -36,7 +35,7 @@ public:
 
 	void beSigned(const Bureaucrat &bureaucrat);
 
-	[[nodiscard]] std::string_view getName() const noexcept;
+	[[nodiscard]] const std::string& getName() const noexcept;
 	[[nodiscard]] bool getIsSigned() const noexcept;
 	[[nodiscard]] int getToSign() const noexcept;
 	[[nodiscard]] int getToExec() const noexcept;

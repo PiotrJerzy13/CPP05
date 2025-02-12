@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 17:29:44 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 09:47:15 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:20:01 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ public:
 	~Bureaucrat() noexcept;
 	
 	Bureaucrat& operator=(const Bureaucrat& other) noexcept;
-	std::string getName() const noexcept;
-	int getGrade() const noexcept;
+	[[nodiscard]] std::string getName() const noexcept;
+	[[nodiscard]] int getGrade() const noexcept;
 	void incrementGrade(int decrement);
 	void decrementGrade(int increment);
 
@@ -41,13 +41,13 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		const char* what() const noexcept override;
+		[[nodiscard]] const char* what() const noexcept override;
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		const char* what() const noexcept override;
+		[[nodiscard]] const char* what() const noexcept override;
 	};
 };
 

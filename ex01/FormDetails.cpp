@@ -3,18 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   FormDetails.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:22:54 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/10 17:22:57 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:51:55 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FormDetails.hpp"
 
+FormDetails::FormDetails() noexcept
+	: name("Default"), signGrade(150), execGrade(150) {}
+
 FormDetails::FormDetails(std::string name, int signGrade, int execGrade)
 	: name(std::move(name)), signGrade(signGrade), execGrade(execGrade)
-	{
+{
 	if (signGrade < 1 || execGrade < 1)
 		throw GradeTooHighException();
 	if (signGrade > 150 || execGrade > 150)

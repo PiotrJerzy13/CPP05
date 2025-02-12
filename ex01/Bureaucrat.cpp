@@ -3,54 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 09:41:17 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 11:20:32 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:26:38 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() = default;
+#include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name)
+Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
+
+Bureaucrat::Bureaucrat(std::string_view name, int grade) : name(name), grade(grade)
 {
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
-	this->grade = grade;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : name(other.name), grade(other.grade) {}
 
 Bureaucrat::~Bureaucrat() = default;
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
-{
-	if (this != &other)
-	{
-		grade = other.grade;
-	}
-	return *this;
-}
-
-std::string_view Bureaucrat::getName() const noexcept { return name; }
+const std::string& Bureaucrat::getName() const noexcept { return name; }
 int Bureaucrat::getGrade() const noexcept { return grade; }
 
-void Bureaucrat::incrementGrade(int decrement)
+void Bureaucrat::incrementGrade(int amount)
 {
-	if (grade - decrement < 1)
+	if (grade - amount < 1)
 		throw GradeTooHighException();
-	grade -= decrement;
+	grade -= amount;
 }
 
-void Bureaucrat::decrementGrade(int increment)
+void Bureaucrat::decrementGrade(int amount)
 {
-	if (grade + increment > 150)
+	if (grade + amount > 150)
 		throw GradeTooLowException();
-	grade += increment;
+	grade += amount;
 }
 
 void Bureaucrat::signForm(Form &form)

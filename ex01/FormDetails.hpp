@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FormDetails.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwojnaro <pwojnaro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 17:23:05 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/10 17:23:12 by pwojnaro         ###   ########.fr       */
+/*   Updated: 2025/02/12 10:51:32 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,24 @@
 class FormDetails
 {
 public:
-	FormDetails(std::string name, int signGrade, int execGrade);
+	FormDetails() noexcept;
+	explicit FormDetails(std::string name, int signGrade, int execGrade);
 	~FormDetails() = default;
 
-	const std::string& getName() const noexcept;
-	int getSignGrade() const noexcept;
-	int getExecGrade() const noexcept;
+	[[nodiscard]] const std::string& getName() const noexcept;
+	[[nodiscard]] int getSignGrade() const noexcept;
+	[[nodiscard]] int getExecGrade() const noexcept;
 
 	class GradeTooHighException : public std::exception
 	{
 	public:
-		const char* what() const noexcept override;
+		[[nodiscard]] const char* what() const noexcept override;
 	};
 
 	class GradeTooLowException : public std::exception
 	{
 	public:
-		const char* what() const noexcept override;
+		[[nodiscard]] const char* what() const noexcept override;
 	};
 
 private:
@@ -43,4 +44,6 @@ private:
 	const int signGrade;
 	const int execGrade;
 };
+
 #endif
+

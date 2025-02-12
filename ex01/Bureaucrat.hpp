@@ -6,7 +6,7 @@
 /*   By: piotr <piotr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 09:39:36 by pwojnaro          #+#    #+#             */
-/*   Updated: 2025/02/09 19:16:14 by piotr            ###   ########.fr       */
+/*   Updated: 2025/02/12 10:39:33 by piotr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include <string>
-#include <string_view>
 #include <exception>
 #include <iostream>
 #include "Form.hpp"
@@ -31,13 +30,14 @@ public:
 	Bureaucrat(std::string_view name, int grade);
 	Bureaucrat(const Bureaucrat& other);
 	~Bureaucrat();
-	Bureaucrat& operator=(const Bureaucrat& other);
+	
+	Bureaucrat& operator=(const Bureaucrat& other) = delete;
 
-	[[nodiscard]] std::string_view getName() const noexcept;
+	[[nodiscard]] const std::string& getName() const noexcept;
 	[[nodiscard]] int getGrade() const noexcept;
 
-	void incrementGrade(int decrement);
-	void decrementGrade(int increment);
+	void incrementGrade(int amount);
+	void decrementGrade(int amount);
 	void signForm(Form &form);
 
 	class GradeTooHighException : public std::exception
