@@ -22,7 +22,6 @@ You will build a small **bureaucratic system** with multiple classes, handling g
   * [ex03 – Intern](#ex03--intern)
 * [Build & Run](#-build--run)
 * [Key Concepts Learned](#-key-concepts-learned)
-* [License](#-license)
 
 ---
 
